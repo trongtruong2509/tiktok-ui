@@ -1,0 +1,98 @@
+@import './../../../GlobalStyles/GlobalStyles';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+}
+
+.container {
+    // background: #ccc;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBox {
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 92px;
+    // border: transparent 1px solid;
+    padding: 0 1rem;
+    width: 360px;
+    height: 46px;
+    display: flex;
+    position: relative;
+
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+        border: none;
+        color: #000000;
+        background-color: transparent;
+        font-size: 15px;
+        height: 100%;
+        width: 290px;
+        outline: none;
+        caret-color: red;
+
+        &:not(:placeholder-shown) ~ .submitBtn {
+            color: rgba(22, 24, 35, 0.75);
+        }
+
+        &:focus ~ .boxBorder {
+            border: 1px solid rgba(22, 24, 35, 0.2);
+        }
+    }
+
+    .boxBorder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 92px;
+        border: 1px solid transparent;
+        z-index: -1;
+    }
+
+    .loading {
+        border: none;
+        outline: none;
+        color: rgba(22, 24, 35, 0.34);
+        font-size: 1rem;
+        padding: 0 0.5rem;
+        cursor: pointer;
+    }
+
+    span {
+        width: 1px;
+        height: 28px;
+        background-color: rgba(22, 24, 35, 0.2);
+    }
+
+    .submitBtn {
+        font-size: 1.25rem;
+        padding: 0.25rem 1rem 0.25rem 0.75rem;
+        margin-right: -15px;
+        color: rgba(22, 24, 35, 0.34);
+        border-bottom-right-radius: 92px;
+        border-top-right-radius: 92px;
+        border: none;
+        outline: none;
+        height: calc(100% - 2px);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+            // height: 100%;
+        }
+
+        &:active {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+    }
+}
