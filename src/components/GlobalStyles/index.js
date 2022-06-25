@@ -1,3 +1,4 @@
+// import '~/fonts/FuturaMaxi/FuturaMaxi.otf';
 import './GlobalStyles.scss';
 
 function GlobalStyles({ children }) {
