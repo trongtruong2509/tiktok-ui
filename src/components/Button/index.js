@@ -5,7 +5,22 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, onClick, children, primary = false, outline = false, small, large, ...passProps }) {
+function Button({
+    to,
+    href,
+    onClick,
+    children,
+    primary = false,
+    outline = false,
+    text = false,
+    rounded = false,
+    size,
+    className,
+    leftIcon,
+    rightIcon,
+    disabled = false,
+    ...passProps
+}) {
     let Comp = 'button';
 
     const props = {
@@ -16,11 +31,23 @@ function Button({ to, href, onClick, children, primary = false, outline = false,
     const classes = cx('wrapper', {
         primary,
         outline,
-        small,
-        large,
+        text,
+        rounded,
+        disabled,
+        [size]: size,
+        [className]: className,
+        leftIcon,
+        rightIcon,
     });
 
-    // console.log(classes);
+    // Remove event listener when btn is disabled
+    if (disabled) {
+        Object.keys(props).forEach((key) => {
+            if (key.startsWith('on') && typeof props[key] === 'function') {
+                delete props[key];
+            }
+        });
+    }
 
     if (to) {
         props.to = to;
@@ -32,7 +59,9 @@ function Button({ to, href, onClick, children, primary = false, outline = false,
 
     return (
         <Comp className={classes} {...props}>
-            <span>{children}</span>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }

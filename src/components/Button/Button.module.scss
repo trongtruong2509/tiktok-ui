@@ -7,9 +7,40 @@
     cursor: pointer;
     border: 1px solid transparent;
     background-color: var(--white);
+    user-select: none;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 // Button types
+.rounded {
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .primary {
     color: var(--white);
     background-color: var(--primary);
@@ -24,6 +55,11 @@
 .outline {
     color: var(--primary);
     border-color: var(--primary);
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
 }
 
 // Button size
