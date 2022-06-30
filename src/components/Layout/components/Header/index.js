@@ -25,6 +25,19 @@ const Menu_Items = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -37,6 +50,8 @@ const Menu_Items = [
     },
 ];
 
+const defaultOnChangeFn = () => {};
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
@@ -44,6 +59,8 @@ function Header() {
             setSearchResult([1, 2]);
         }, 0);
     });
+
+    const handleMenuChange = (menuItem) => {};
 
     return (
         <header className={styles.wrapper}>
@@ -81,7 +98,7 @@ function Header() {
                 <div className="actions">
                     <Button text>Log in</Button>
                     <Button rounded>Log in</Button>
-                    <Menu items={Menu_Items}>
+                    <Menu items={Menu_Items} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

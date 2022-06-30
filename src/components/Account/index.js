@@ -3,16 +3,14 @@ import classNames from 'classnames/bind';
 // import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Account.module.scss';
+import Images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
 function Account() {
     return (
         <div className={cx('wrapper')}>
-            <img
-                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/17937206d75158670a293f5caa5b6dda~c5_300x300.webp?x-expires=1656248400&x-signature=7ZledLK%2Bya7DDd%2FzOP4Kw5b%2FMv8%3D"
-                alt="Avatar"
-            />
+            <img src={Images.hoaa} />
             <div className={cx('info')}>
                 <h4>
                     <span>hoaa.hanassii</span>
