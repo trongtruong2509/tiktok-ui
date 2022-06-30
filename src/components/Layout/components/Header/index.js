@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical, faMagnifyingGlass, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faMagnifyingGlass,
+    faXmarkCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import React, { useEffect, useState } from 'react';
@@ -13,6 +20,22 @@ import Account from '~/components/Account';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
+
+const Menu_Items = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
@@ -58,7 +81,7 @@ function Header() {
                 <div className="actions">
                     <Button text>Log in</Button>
                     <Button rounded>Log in</Button>
-                    <Menu>
+                    <Menu items={Menu_Items}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
